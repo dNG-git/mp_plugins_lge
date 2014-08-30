@@ -54,7 +54,7 @@ Called for "dNG.pas.upnp.SsdpRequest.filterHeaders"
 	     ):
 	#
 		if (_return == None): _return = params['headers'].copy()
-		_return['LOCATION'] = "ssdp://{0}".format(params['headers']['HOST'])
+		_return['LOCATION'] = "ssdp://{0}/".format(params['headers']['HOST'])
 	#
 
 	return _return
