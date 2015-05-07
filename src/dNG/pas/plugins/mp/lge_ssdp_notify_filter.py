@@ -53,7 +53,7 @@ Called for "dNG.pas.upnp.SsdpRequest.filterHeaders"
 	      and "LOCATION" not in params['headers']
 	     ):
 	#
-		if (_return == None): _return = params['headers'].copy()
+		if (_return is None): _return = params['headers'].copy()
 		_return['LOCATION'] = "ssdp://{0}/".format(params['headers']['HOST'])
 	#
 
