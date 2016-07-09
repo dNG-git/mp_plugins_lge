@@ -31,8 +31,8 @@ https://www.direct-netware.de/redirect?licenses;gpl
 #echo(__FILEPATH__)#
 """
 
-from dNG.pas.plugins.hook import Hook
-from dNG.pas.runtime.value_exception import ValueException
+from dNG.plugins.hook import Hook
+from dNG.runtime.value_exception import ValueException
 
 def filter_headers(params, last_return = None):
 #
@@ -43,7 +43,7 @@ Called for "dNG.pas.upnp.SsdpRequest.filterHeaders"
 :param last_return: The return value from the last hook called.
 
 :return: (mixed) Return value
-:since:  v0.1.00
+:since:  v0.2.00
 	"""
 
 	_return = last_return
@@ -65,7 +65,7 @@ def register_plugin():
 	"""
 Register plugin hooks.
 
-:since: v0.1.00
+:since: v0.2.00
 	"""
 
 	Hook.register("dNG.pas.upnp.SsdpRequest.filterHeaders", filter_headers)
@@ -76,7 +76,7 @@ def unregister_plugin():
 	"""
 Unregister plugin hooks.
 
-:since: v0.1.00
+:since: v0.2.00
 	"""
 
 	Hook.unregister("dNG.pas.upnp.SsdpRequest.filterHeaders", filter_headers)
