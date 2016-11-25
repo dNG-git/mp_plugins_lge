@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-##j## BOF
 
 """
 MediaProvider
@@ -35,8 +34,7 @@ from dNG.plugins.hook import Hook
 from dNG.runtime.value_exception import ValueException
 
 def filter_headers(params, last_return = None):
-#
-	"""
+    """
 Called for "dNG.pas.upnp.SsdpRequest.filterHeaders"
 
 :param params: Parameter specified
@@ -44,42 +42,37 @@ Called for "dNG.pas.upnp.SsdpRequest.filterHeaders"
 
 :return: (mixed) Return value
 :since:  v0.2.00
-	"""
+    """
 
-	_return = last_return
+    _return = last_return
 
-	if ("headers" not in params): raise ValueException("Missing required argument")
-	elif ("HOST" in params['headers']
-	      and "LOCATION" not in params['headers']
-	     ):
-	#
-		if (_return is None): _return = params['headers'].copy()
-		_return['LOCATION'] = "ssdp://{0}/".format(params['headers']['HOST'])
-	#
+    if ("headers" not in params): raise ValueException("Missing required argument")
+    elif ("HOST" in params['headers']
+          and "LOCATION" not in params['headers']
+         ):
+        if (_return is None): _return = params['headers'].copy()
+        _return['LOCATION'] = "ssdp://{0}/".format(params['headers']['HOST'])
+    #
 
-	return _return
+    return _return
 #
 
 def register_plugin():
-#
-	"""
+    """
 Register plugin hooks.
 
 :since: v0.2.00
-	"""
+    """
 
-	Hook.register("dNG.pas.upnp.SsdpRequest.filterHeaders", filter_headers)
+    Hook.register("dNG.pas.upnp.SsdpRequest.filterHeaders", filter_headers)
 #
 
 def unregister_plugin():
-#
-	"""
+    """
 Unregister plugin hooks.
 
 :since: v0.2.00
-	"""
+    """
 
-	Hook.unregister("dNG.pas.upnp.SsdpRequest.filterHeaders", filter_headers)
+    Hook.unregister("dNG.pas.upnp.SsdpRequest.filterHeaders", filter_headers)
 #
-
-##j## EOF
